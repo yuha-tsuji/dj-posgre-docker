@@ -1,8 +1,14 @@
 version: '3'
+
+volumes:
+  db-data:
+
     
 services:
   db:
     image: postgres
+    volumes:
+      - 'db-data:/var/lib/postgresql/data'
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
